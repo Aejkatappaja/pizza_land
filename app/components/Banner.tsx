@@ -10,7 +10,7 @@ import {
 export const Banner = () => {
   return (
     <section className="bg-primary bg-pattern lg:min-h[768px] pt-16 lg:pt-16">
-      <div className="container ;x auto min-h-[768px] flex items-center justify-center">
+      <div className="container mx-auto min-h-[768px] flex items-center justify-center">
         <MouseParallaxContainer
           globalFactorX={0.4}
           globalFactorY={0.3}
@@ -30,7 +30,7 @@ export const Banner = () => {
             </div>
           </MouseParallaxChild>
           <MouseParallaxChild factorX={0.2} factorY={0.3} className="relative">
-            <div>
+            <div className="flex flex-col lg:flex-row items-center text-center lg:text-left flex-1 px-6">
               <div className="flex-1 flex justify-end max-w-sm lg:max-w-max">
                 <Image
                   src={"/pizza-banner.png"}
