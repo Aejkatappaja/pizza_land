@@ -1,6 +1,5 @@
 import { getAllPizzas } from "@/lib/pizzas";
 import { PizzaType } from "@/types/types";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 
 export const dynamicParams = false;
 
@@ -30,8 +29,7 @@ export default async function PizzaDetails({
 
   return (
     <div>
-      {" "}
-      <h1>{id}</h1> <p>{data.pizza.name}</p>
+      <h1>{id}</h1> <p>{data.pizza.name}</p> <p>{data.pizza.priceLg}</p>
     </div>
   );
 }
