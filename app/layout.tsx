@@ -1,4 +1,5 @@
 import { Footer } from "./components/Footer";
+import { Modal } from "./components/Modal";
 import { Nav } from "./components/Nav";
 import "./globals.css";
 import { Bangers, Quicksand, Roboto_Condensed } from "next/font/google";
@@ -36,6 +37,7 @@ export default function RootLayout({
         <Nav />
         {children}
         <Footer />
+        <Modal />
       </body>
     </html>
   );
