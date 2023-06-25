@@ -13,7 +13,7 @@ interface PizzaProps {
 
 export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
   console.log(pizza);
-  const { setIsVisible } = useVisibleContext();
+  const { setIsVisible, setClickedPizza } = useVisibleContext();
 
   return (
     <div className="group py-2 px-4 xl:py-4 xl-px-2 rounded-xl" key={key}>
@@ -40,7 +40,9 @@ export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
         </div>
         <button
           className="hidden lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm"
-          onClick={() => setIsVisible(true)}
+          onClick={() => {
+            setIsVisible(true), setClickedPizza(pizza);
+          }}
         >
           Choose
         </button>

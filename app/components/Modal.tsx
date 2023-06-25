@@ -2,6 +2,7 @@
 
 import { useVisibleContext } from "@/context/isVisibleContext";
 import React from "react";
+import { PizzaDetails } from "./PizzaDetails";
 
 export const Modal = () => {
   const { isVisible, setIsVisible } = useVisibleContext();
@@ -14,7 +15,7 @@ export const Modal = () => {
         className="border-2 w-2/6 h-3/6 z-40 opacity-100 rounded-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        MODAL
+        <PizzaDetails />
       </div>
     </section>
   ) : null;
