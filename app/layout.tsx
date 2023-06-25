@@ -1,6 +1,7 @@
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
 import { Nav } from "./components/Nav";
+import { VisibleContextProvider } from "./context/isVisibleContext";
 import "./globals.css";
 import { Bangers, Quicksand, Roboto_Condensed } from "next/font/google";
 
@@ -34,10 +35,12 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${bangers.variable} ${robotoCondensed.variable} font-quicksand`}
       >
-        <Nav />
-        {children}
-        <Footer />
-        <Modal />
+        <VisibleContextProvider>
+          <Nav />
+          {children}
+          <Footer />
+          <Modal />
+        </VisibleContextProvider>
       </body>
     </html>
   );

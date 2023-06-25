@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { PizzaType } from "../types/types";
 import Link from "next/link";
+import { useVisibleContext } from "@/context/isVisibleContext";
 
 interface PizzaProps {
   key: string;
@@ -12,6 +13,7 @@ interface PizzaProps {
 
 export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
   console.log(pizza);
+  const { setIsVisible } = useVisibleContext();
 
   return (
     <div className="group py-2 px-4 xl:py-4 xl-px-2 rounded-xl" key={key}>
@@ -36,7 +38,10 @@ export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
         <div className="hidden lg:flex text-xl font-semibold">
           starts at {pizza.priceSm}
         </div>
-        <button className="hidden lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm">
+        <button
+          className="hidden lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm"
+          onClick={() => setIsVisible(true)}
+        >
           Choose
         </button>
         <button className="btn btn-sm gradient lg:hidden px-3">
