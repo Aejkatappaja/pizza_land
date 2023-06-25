@@ -8,6 +8,8 @@ interface VisibleContextType {
   setIsVisible: (isVisible: boolean) => void;
   clickedPizza: PizzaType;
   setClickedPizza: (pizza: PizzaType) => void;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
 interface ContextProviderProps {
@@ -30,12 +32,16 @@ export const VisibleContext = React.createContext<VisibleContextType>({
     toppings: [],
   },
   setClickedPizza: () => {},
+  openModal: () => {},
+  closeModal: () => {},
 });
 
 export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
+  const openModal = () => setIsVisible(false);
+  const closeModal = () => setIsVisible(false);
   const [clickedPizza, setClickedPizza] = React.useState<PizzaType>({
     id: 0,
     name: "",
@@ -52,6 +58,8 @@ export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
     setIsVisible,
     clickedPizza,
     setClickedPizza,
+    openModal,
+    closeModal,
   };
 
   return (

@@ -1,4 +1,4 @@
-export type Topping = {
+export type ToppingType = {
   name: string;
   image: string;
   price: number;
@@ -11,5 +11,5 @@ export type PizzaType = {
   priceMd: number;
   priceSm: number;
   image: string;
-  toppings: Topping[];
+  toppings: ToppingType[];
 };
