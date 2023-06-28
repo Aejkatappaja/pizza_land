@@ -24,7 +24,6 @@ export const PizzaDetails = () => {
     switch (size) {
       case "small":
         updatedPrice = pizza?.priceSm + additionalToppingPrice;
-        break;
       case "medium":
         updatedPrice = pizza?.priceMd + additionalToppingPrice;
         break;
@@ -93,7 +92,7 @@ export const PizzaDetails = () => {
               </div>
             </div>
             <SizeSelection />
-            <CrustSelection />
+            <CrustSelection crust={crust} setCrust={setCrust} />
             <div>Choose topping</div>
             <div>
               {pizza.toppings?.map((topping, index) => {
