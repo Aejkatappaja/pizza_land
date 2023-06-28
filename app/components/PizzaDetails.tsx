@@ -91,7 +91,7 @@ export const PizzaDetails = () => {
                 <span>, {crust} crust</span>
               </div>
             </div>
-            <SizeSelection />
+            <SizeSelection size={size} setSize={setSize} pizza={pizza} />
             <CrustSelection crust={crust} setCrust={setCrust} />
             <div>Choose topping</div>
             <div>
