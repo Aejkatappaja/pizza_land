@@ -78,7 +78,7 @@ export const PizzaDetails = () => {
             <div className="font-semibold">
               <h2 className="capitalize text-3xl mb-1">{pizza.name}</h2>
               {/* size, crust text */}
-              <div className="bg-yellow-200 mb-6 text-lg font-medium">
+              <div className=" mb-6 text-lg font-medium">
                 <span>
                   {size === "small"
                     ? "25 cm"
@@ -95,8 +95,15 @@ export const PizzaDetails = () => {
             <CrustSelection crust={crust} setCrust={setCrust} />
             <div>Choose topping</div>
             <div>
-              {pizza.toppings?.map((topping, index) => {
-                return <Topping key={index} />;
+              {pizza.toppings?.map((topping: ToppingType, index: number) => {
+                return (
+                  <Topping
+                    key={index}
+                    topping={topping}
+                    additionalTopping={additionalTopping}
+                    setAdditionalTopping={setAdditionalTopping}
+                  />
+                );
               })}
             </div>
           </div>

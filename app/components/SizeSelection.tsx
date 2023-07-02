@@ -39,7 +39,7 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
           />
           Small
         </label>
-        <label className=" flex flex-col items-center gap-x-2 cursor-pointer">
+        <label className="flex flex-col items-center gap-x-2 cursor-pointer">
           <Image
             src={pizza.image}
             width={70}
