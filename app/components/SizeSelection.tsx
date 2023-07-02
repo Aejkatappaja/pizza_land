@@ -14,10 +14,10 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
   setSize,
 }) => {
   return (
-    <div className="bg-indigo-400 ">
+    <div className="mx-auto max-w-sm lg:max-w-none flex items-center justify-center lg:justify-start">
       {/* sizes */}
-      <div className="flex ">
-        <label className="bg-red-200 flex flex-col items-center gap-x-2 cursor-pointer">
+      <div className="flex gap-x-12 items-baseline mb-10 font-medium">
+        <label className=" flex flex-col items-center gap-x-2 cursor-pointer">
           <Image
             src={pizza.image}
             width={60}
@@ -39,7 +39,7 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
           />
           Small
         </label>
-        <label className="bg-red-200 flex flex-col items-center gap-x-2 cursor-pointer">
+        <label className=" flex flex-col items-center gap-x-2 cursor-pointer">
           <Image
             src={pizza.image}
             width={70}
@@ -61,7 +61,7 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
           />
           Medium
         </label>
-        <label className="bg-red-200 flex flex-col items-center gap-x-2 cursor-pointer">
+        <label className=" flex flex-col items-center gap-x-2 cursor-pointer">
           <Image
             src={pizza.image}
             width={80}
