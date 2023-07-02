@@ -23,12 +23,13 @@ export const PizzaDetails = () => {
 
     switch (size) {
       case "small":
-        updatedPrice = pizza?.priceSm + additionalToppingPrice;
+        updatedPrice = pizza.priceSm + additionalToppingPrice;
+        break;
       case "medium":
-        updatedPrice = pizza?.priceMd + additionalToppingPrice;
+        updatedPrice = pizza.priceMd + additionalToppingPrice;
         break;
       case "large":
-        updatedPrice = pizza?.priceLg + additionalToppingPrice;
+        updatedPrice = pizza.priceLg + additionalToppingPrice;
         break;
       default:
         return;
@@ -42,17 +43,19 @@ export const PizzaDetails = () => {
     pizza?.priceLg,
     additionalToppingPrice,
   ]);
+
   React.useEffect(() => {
     if (additionalTopping.length) {
       const toppingPrice = additionalTopping.reduce((a, c) => {
         return a + c.price;
       }, 0);
+      setAdditionalToppingPrice(toppingPrice);
     } else {
       setAdditionalToppingPrice(0);
     }
   }, [additionalTopping]);
 
-  console.log(price);
+  console.log(pizza, price);
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8 ">
@@ -71,9 +74,9 @@ export const PizzaDetails = () => {
         </div>
       </div>
       {/*details*/}
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col flex-1 ">
         <div className="flex-1 p-2 text-center lg:text-left">
-          <div className="flex-1 bg-white overflow-y-scroll h-[46vh] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2">
+          <div className="flex-1 bg-white overflow-y-scroll h-[52.45vh] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2  ">
             {/* name */}
             <div className="font-semibold">
               <h2 className="capitalize text-3xl mb-1">{pizza.name}</h2>
@@ -93,8 +96,8 @@ export const PizzaDetails = () => {
             </div>
             <SizeSelection size={size} setSize={setSize} pizza={pizza} />
             <CrustSelection crust={crust} setCrust={setCrust} />
-            <div>Choose topping</div>
-            <div>
+            <div className="mb-4 text-xl font-semibold ">Choose topping</div>
+            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start">
               {pizza.toppings?.map((topping: ToppingType, index: number) => {
                 return (
                   <Topping
@@ -107,7 +110,7 @@ export const PizzaDetails = () => {
               })}
             </div>
           </div>
-          <div className=" flex items-center px-2 lg:items-end">
+          <div className="mt-4 flex items-center px-2 lg:items-end">
             <button className="btn btn-lg gradient w-full flex justify-center gap-x-2">
               <div>Add to cart for :</div>
               <div>$ {price}</div>
