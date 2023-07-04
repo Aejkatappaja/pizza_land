@@ -40,7 +40,7 @@ export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
-  const openModal = () => setIsVisible(false);
+  const openModal = () => setIsVisible(true);
   const closeModal = () => setIsVisible(false);
   const [clickedPizza, setClickedPizza] = React.useState<PizzaType>({
     id: 0,

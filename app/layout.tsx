@@ -2,6 +2,7 @@ import { CartMobileIcon } from "./components/CartMobileIcon";
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
 import { Nav } from "./components/Nav";
+import { CartContextProvider } from "./context/CartContext";
 import { VisibleContextProvider } from "./context/isVisibleContext";
 import "./globals.css";
 import { Bangers, Quicksand, Roboto_Condensed } from "next/font/google";
@@ -36,13 +37,15 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${bangers.variable} ${robotoCondensed.variable} font-quicksand`}
       >
-        <VisibleContextProvider>
-          <Nav />
-          <CartMobileIcon />
-          {children}
-          <Footer />
-          <Modal />
-        </VisibleContextProvider>
+        <CartContextProvider>
+          <VisibleContextProvider>
+            <Nav />
+            <CartMobileIcon />
+            {children}
+            <Footer />
+            <Modal />
+          </VisibleContextProvider>
+        </CartContextProvider>
       </body>
     </html>
   );
