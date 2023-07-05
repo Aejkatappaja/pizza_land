@@ -1,3 +1,4 @@
+import { CartDesktop } from "./components/CartDesktop";
 import { CartMobileIcon } from "./components/CartMobileIcon";
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
@@ -40,6 +41,7 @@ export default function RootLayout({
         <CartContextProvider>
           <VisibleContextProvider>
             <Nav />
+            <CartDesktop />
             <CartMobileIcon />
             {children}
             <Footer />
