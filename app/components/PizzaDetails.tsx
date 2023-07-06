@@ -2,12 +2,14 @@ import React from "react";
 import Image from "next/image";
 import { SizeSelection } from "./SizeSelection";
 import { Topping } from "./Topping";
-import { PizzaType, ToppingType } from "@/types/types";
+import { ToppingType } from "@/types/types";
 import { useVisibleContext } from "@/context/isVisibleContext";
 import { CrustSelection } from "./CrustSelection";
+import { useCartContext } from "@/context/CartContext";
 
 export const PizzaDetails = () => {
   const { clickedPizza } = useVisibleContext();
+  const { addToCart } = useCartContext();
   const pizza = clickedPizza;
   const [size, setSize] = React.useState<string>("small");
   const [crust, setCrust] = React.useState<string>("traditional");
@@ -111,7 +113,20 @@ export const PizzaDetails = () => {
             </div>
           </div>
           <div className="mt-4 flex items-center px-2 lg:items-end">
-            <button className="btn btn-lg gradient w-full flex justify-center gap-x-2">
+            <button
+              onClick={() =>
+                addToCart({
+                  id: pizza.id,
+                  image: pizza.image,
+                  name: pizza.name,
+                  price: price,
+                  additionalTopping: additionalTopping,
+                  size: size,
+                  crust: crust,
+                })
+              }
+              className="btn btn-lg gradient w-full flex justify-center gap-x-2"
+            >
               <div>Add to cart for :</div>
               <div>$ {price}</div>
             </button>

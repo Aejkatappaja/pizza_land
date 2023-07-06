@@ -13,3 +13,13 @@ export type PizzaType = {
   image: string;
   toppings: ToppingType[];
 };
+
+export type Cart = {
+  id: number;
+  name: string;
+  image: string;
+  price: number;
+  size: string;
+  crust: string;
+  additionalTopping: ToppingType[];
+};
