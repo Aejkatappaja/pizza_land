@@ -2,11 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { SizeSelection } from "./SizeSelection";
 import { Topping } from "./Topping";
-import { ToppingType } from "@/types/types";
-import { useVisibleContext } from "@/context/isVisibleContext";
+import { PizzaProps, ToppingType } from "@/types/types";
 import { CrustSelection } from "./CrustSelection";
 import { useCartContext } from "@/context/CartContext";
-import { PizzaProps } from "./Pizza";
 
 export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
   const { addToCart } = useCartContext();
@@ -123,6 +121,7 @@ export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
                   additionalTopping: additionalTopping,
                   size: size,
                   crust: crust,
+                  quantity: 1,
                 })
               }
               className="btn btn-lg gradient w-full flex justify-center gap-x-2"

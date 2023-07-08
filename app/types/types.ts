@@ -1,3 +1,8 @@
+export interface PizzaProps {
+  key?: string;
+  pizza: PizzaType;
+}
+
 export type ToppingType = {
   name: string;
   image: string;
@@ -22,4 +27,5 @@ export type Cart = {
   size: string;
   crust: string;
   additionalTopping: ToppingType[];
+  quantity: number;
 };

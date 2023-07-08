@@ -3,7 +3,7 @@
 import { useVisibleContext } from "@/context/isVisibleContext";
 import React from "react";
 import { PizzaDetails } from "./PizzaDetails";
-import { PizzaProps } from "./Pizza";
+import { PizzaProps } from "@/types/types";
 
 export const Modal: React.FC<PizzaProps> = ({ pizza }) => {
   const { isVisible, closeModal } = useVisibleContext();

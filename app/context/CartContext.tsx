@@ -6,8 +6,6 @@ import React from "react";
 interface CartContextType {
   isCartVisible: boolean;
   setIsCartVisible: (isVisible: boolean) => void;
-  clickedPizza: PizzaType;
-  setClickedPizza: (pizza: PizzaType) => void;
   openCart: () => void;
   closeCart: () => void;
   cart: Cart[];
@@ -24,19 +22,8 @@ export const useCartContext = () => React.useContext(CartContext);
 export const CartContext = React.createContext<CartContextType>({
   isCartVisible: false,
   setIsCartVisible: () => {},
-  clickedPizza: {
-    id: 0,
-    name: "",
-    description: "",
-    priceLg: 0,
-    priceMd: 0,
-    priceSm: 0,
-    image: "",
-    toppings: [],
-  },
   cart: [],
   setCart: () => {},
-  setClickedPizza: () => {},
   openCart: () => {},
   closeCart: () => {},
   addToCart: () => {},
@@ -54,22 +41,12 @@ export const CartContextProvider: React.FC<ContextProviderProps> = ({
       cart.price,
       cart.additionalTopping,
       cart.size,
-      cart.crust
+      cart.quantity
     );
   };
   const [isCartVisible, setIsCartVisible] = React.useState<boolean>(false);
   const openCart = () => setIsCartVisible(true);
   const closeCart = () => setIsCartVisible(false);
-  const [clickedPizza, setClickedPizza] = React.useState<PizzaType>({
-    id: 0,
-    name: "",
-    description: "",
-    priceLg: 0,
-    priceMd: 0,
-    priceSm: 0,
-    image: "",
-    toppings: [],
-  });
 
   const contextValue: CartContextType = {
     cart,
@@ -77,8 +54,6 @@ export const CartContextProvider: React.FC<ContextProviderProps> = ({
     setCart,
     isCartVisible,
     setIsCartVisible,
-    clickedPizza,
-    setClickedPizza,
     openCart,
     closeCart,
   };
