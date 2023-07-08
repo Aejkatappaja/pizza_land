@@ -45,7 +45,6 @@ export default function RootLayout({
             <CartMobileIcon />
             {children}
             <Footer />
-            <Modal />
           </VisibleContextProvider>
         </CartContextProvider>
       </body>

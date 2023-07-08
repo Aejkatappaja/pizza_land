@@ -6,11 +6,11 @@ import { ToppingType } from "@/types/types";
 import { useVisibleContext } from "@/context/isVisibleContext";
 import { CrustSelection } from "./CrustSelection";
 import { useCartContext } from "@/context/CartContext";
+import { PizzaProps } from "./Pizza";
 
-export const PizzaDetails = () => {
-  const { clickedPizza } = useVisibleContext();
+export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
   const { addToCart } = useCartContext();
-  const pizza = clickedPizza;
+
   const [size, setSize] = React.useState<string>("small");
   const [crust, setCrust] = React.useState<string>("traditional");
   const [additionalTopping, setAdditionalTopping] = React.useState<
