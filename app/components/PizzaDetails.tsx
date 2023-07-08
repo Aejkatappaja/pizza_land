@@ -121,7 +121,7 @@ export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
               })}
             </div>
           </div>
-          <div className="mt-4 flex items-center px-2 lg:items-end">
+          <div className="flex items-center px-2 lg:items-end">
             <button
               onClick={() => {
                 console.log(orderedPizza);
