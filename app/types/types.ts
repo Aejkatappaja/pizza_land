@@ -29,3 +29,12 @@ export type Cart = {
   additionalTopping: ToppingType[];
   quantity: number;
 };
+
+export type Order = {
+  id: number;
+  name: string;
+  price: number;
+  crust: string;
+  additionalTopping: ToppingType[];
+  image: string;
+};

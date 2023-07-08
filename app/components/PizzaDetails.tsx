@@ -7,7 +7,7 @@ import { CrustSelection } from "./CrustSelection";
 import { useCartContext } from "@/context/CartContext";
 
 export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
-  const { addToCart } = useCartContext();
+  const { addToCart, setCart } = useCartContext();
 
   const [size, setSize] = React.useState<string>("small");
   const [crust, setCrust] = React.useState<string>("traditional");
@@ -43,6 +43,17 @@ export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
     pizza?.priceLg,
     additionalToppingPrice,
   ]);
+
+  const orderedPizza = [
+    {
+      id: pizza.id,
+      name: pizza.name,
+      price,
+      crust,
+      additionalTopping,
+      image: pizza.image,
+    },
+  ];
 
   React.useEffect(() => {
     if (additionalTopping.length) {
@@ -112,18 +123,10 @@ export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
           </div>
           <div className="mt-4 flex items-center px-2 lg:items-end">
             <button
-              onClick={() =>
-                addToCart({
-                  id: pizza.id,
-                  image: pizza.image,
-                  name: pizza.name,
-                  price: price,
-                  additionalTopping: additionalTopping,
-                  size: size,
-                  crust: crust,
-                  quantity: 1,
-                })
-              }
+              onClick={() => {
+                console.log(orderedPizza);
+                addToCart(orderedPizza);
+              }}
               className="btn btn-lg gradient w-full flex justify-center gap-x-2"
             >
               <div>Add to cart for :</div>
