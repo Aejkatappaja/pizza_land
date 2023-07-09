@@ -3,10 +3,11 @@
 import { useVisibleContext } from "@/context/isVisibleContext";
 import React from "react";
 import { PizzaDetails } from "./PizzaDetails";
-import { PizzaProps } from "@/types/types";
 
-export const Modal: React.FC<PizzaProps> = ({ pizza }) => {
-  const { isVisible, closeModal } = useVisibleContext();
+export const Modal = () => {
+  const { isVisible, closeModal, selectedPizza } = useVisibleContext();
+  console.log(selectedPizza);
+
   return isVisible ? (
     <section
       className="w-[100vw] h-[100vh] bg-gray-600 bg-opacity-25 z-30 fixed top-0 left-0 flex items-center justify-center"
@@ -24,7 +25,7 @@ export const Modal: React.FC<PizzaProps> = ({ pizza }) => {
             X
           </h2>
         </div>
-        <PizzaDetails pizza={pizza} />
+        <PizzaDetails />
       </div>
     </section>
   ) : null;

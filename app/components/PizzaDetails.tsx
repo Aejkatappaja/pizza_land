@@ -2,12 +2,15 @@ import React from "react";
 import Image from "next/image";
 import { SizeSelection } from "./SizeSelection";
 import { Topping } from "./Topping";
-import { PizzaProps, ToppingType } from "@/types/types";
+import { Order, ToppingType } from "@/types/types";
 import { CrustSelection } from "./CrustSelection";
 import { useCartContext } from "@/context/CartContext";
+import { useVisibleContext } from "@/context/isVisibleContext";
 
-export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
-  const { addToCart, setCart } = useCartContext();
+export const PizzaDetails = () => {
+  const { addToCart } = useCartContext();
+  const { selectedPizza } = useVisibleContext();
+  const pizza = selectedPizza;
 
   const [size, setSize] = React.useState<string>("small");
   const [crust, setCrust] = React.useState<string>("traditional");
@@ -44,16 +47,15 @@ export const PizzaDetails: React.FC<PizzaProps> = ({ pizza }) => {
     additionalToppingPrice,
   ]);
 
-  const orderedPizza = [
-    {
-      id: pizza.id,
-      name: pizza.name,
-      price,
-      crust,
-      additionalTopping,
-      image: pizza.image,
-    },
-  ];
+  const orderedPizza: Order = {
+    id: pizza.id,
+    name: pizza.name,
+    price,
+    crust,
+    additionalTopping,
+    image: pizza.image,
+    quantity: 1,
+  };
 
   React.useEffect(() => {
     if (additionalTopping.length) {

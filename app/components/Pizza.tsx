@@ -2,13 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
-import { PizzaProps } from "../types/types";
+import { PizzaProps, PizzaType } from "../types/types";
 import Link from "next/link";
 import { useVisibleContext } from "@/context/isVisibleContext";
 import { Modal } from "./Modal";
 
 export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
-  const { isVisible, setIsVisible } = useVisibleContext();
+  const { isVisible, setIsVisible, setSelectedPizza } = useVisibleContext();
 
   return (
     <>
@@ -37,6 +37,7 @@ export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
           <button
             className="hidden lg:flex gradient text-white rounded-lg btn-sm font-semibold text-sm"
             onClick={() => {
+              setSelectedPizza(pizza);
               setIsVisible(!isVisible);
             }}
           >
@@ -44,13 +45,15 @@ export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
           </button>
           <button
             className="btn btn-sm gradient lg:hidden px-3"
-            onClick={() => setIsVisible(!isVisible)}
+            onClick={() => {
+              setSelectedPizza(pizza);
+              setIsVisible(!isVisible);
+            }}
           >
             starts at {pizza.priceSm}
           </button>
         </div>
       </div>
-      <Modal pizza={pizza} />
     </>
   );
 };

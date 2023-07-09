@@ -1,6 +1,6 @@
 "use client";
 
-import { PizzaType, Cart, ToppingType, Order } from "@/types/types";
+import { Order } from "@/types/types";
 import React from "react";
 
 interface CartContextType {
@@ -10,7 +10,7 @@ interface CartContextType {
   closeCart: () => void;
   cart: Order[];
   setCart: React.Dispatch<React.SetStateAction<Order[]>>;
-  addToCart: (cart: Order[]) => void;
+  addToCart: (cart: Order) => void;
 }
 
 interface ContextProviderProps {
@@ -33,9 +33,10 @@ export const CartContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [cart, setCart] = React.useState<Order[]>([]);
-  const addToCart = (cart: Order[]) => {
-    const copy = [...cart];
-    setCart(copy);
+  const addToCart = (product: Order) => {
+    const newProduct = { ...product };
+
+    setCart((prevCart) => [...prevCart, newProduct]);
   };
   const [isCartVisible, setIsCartVisible] = React.useState<boolean>(false);
   const openCart = () => setIsCartVisible(true);
