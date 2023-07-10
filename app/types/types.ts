@@ -24,6 +24,7 @@ export type Order = {
   name: string;
   price: number;
   crust: string;
+  size: string;
   additionalTopping: ToppingType[];
   image: string;
   quantity: number;

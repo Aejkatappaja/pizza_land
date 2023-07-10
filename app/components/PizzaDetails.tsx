@@ -52,6 +52,7 @@ export const PizzaDetails = () => {
     name: pizza.name,
     price,
     crust,
+    size,
     additionalTopping,
     image: pizza.image,
     quantity: 1,

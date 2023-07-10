@@ -11,6 +11,8 @@ interface CartContextType {
   cart: Order[];
   setCart: React.Dispatch<React.SetStateAction<Order[]>>;
   addToCart: (cart: Order) => void;
+  totalPrice: number;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface ContextProviderProps {
@@ -27,6 +29,8 @@ export const CartContext = React.createContext<CartContextType>({
   openCart: () => {},
   closeCart: () => {},
   addToCart: () => {},
+  totalPrice: 0,
+  setTotalPrice: () => {},
 });
 
 export const CartContextProvider: React.FC<ContextProviderProps> = ({
@@ -38,6 +42,17 @@ export const CartContextProvider: React.FC<ContextProviderProps> = ({
 
     setCart((prevCart) => [...prevCart, newProduct]);
   };
+
+  const [totalPrice, setTotalPrice] = React.useState<number>(0);
+
+  React.useEffect(() => {
+    let price = 0;
+    cart.forEach((item) => {
+      price += item.price * item.quantity;
+    });
+    setTotalPrice(price);
+  }, [cart]);
+
   const [isCartVisible, setIsCartVisible] = React.useState<boolean>(false);
   const openCart = () => setIsCartVisible(true);
   const closeCart = () => setIsCartVisible(false);
@@ -50,6 +65,8 @@ export const CartContextProvider: React.FC<ContextProviderProps> = ({
     setIsCartVisible,
     openCart,
     closeCart,
+    totalPrice,
+    setTotalPrice,
   };
 
   return (
