@@ -11,7 +11,7 @@ export const CartBottom: React.FC<CartBottomProps> = ({}) => {
         <h1>Total : </h1>
         <h1>${totalPrice}</h1>
       </div>
-      <button className="btn btn-lg  gradient w-full mt-4">Checkout</button>
+      <button className="btn btn-lg gradient w-full mt-4">Checkout</button>
     </div>
   );
 };

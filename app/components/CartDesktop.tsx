@@ -18,7 +18,7 @@ export const CartDesktop: React.FC<CartDesktopProps> = ({}) => {
       } bg-white fixed top-0 bottom-0 w-[500px] shadow-2xl hidden lg:flex flex-col transition-all duration-300 z-20`}
     >
       <CartTop />
-      <div className=" h-[40rem] flex flex-col items-center">
+      <div className=" h-[40rem] flex flex-col items-center overflow-scroll">
         {cart?.map((order: Order, index: number) => {
           return <CartItem key={index} order={order} />;
         })}
