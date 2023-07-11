@@ -6,6 +6,7 @@ import { Order, ToppingType } from "@/types/types";
 import { CrustSelection } from "./CrustSelection";
 import { useCartContext } from "@/context/CartContext";
 import { useVisibleContext } from "@/context/isVisibleContext";
+import toast from "react-hot-toast";
 
 export const PizzaDetails = () => {
   const { addToCart } = useCartContext();
@@ -72,7 +73,7 @@ export const PizzaDetails = () => {
   console.log(pizza, price);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8 ">
+    <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8">
       {/*top */}
       <div className="lg:flex-1 flex justify-center items-center">
         {/*pizza image */}
@@ -90,7 +91,7 @@ export const PizzaDetails = () => {
       {/*details*/}
       <div className="flex flex-col flex-1 ">
         <div className="flex-1 p-2 text-center lg:text-left">
-          <div className="flex-1 bg-white overflow-y-scroll h-[52.45vh] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2  ">
+          <div className="flex-1 bg-white overflow-y-scroll h-[90%] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2">
             {/* name */}
             <div className="font-semibold">
               <h2 className="capitalize text-3xl mb-1">{pizza.name}</h2>
@@ -110,8 +111,8 @@ export const PizzaDetails = () => {
             </div>
             <SizeSelection size={size} setSize={setSize} pizza={pizza} />
             <CrustSelection crust={crust} setCrust={setCrust} />
-            <div className="mb-4 text-xl font-semibold ">Choose topping</div>
-            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start">
+            <div className="mb-1 text-xl font-semibold ">Choose topping</div>
+            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start mb-2  max-h-36 overflow-scroll">
               {pizza.toppings?.map((topping: ToppingType, index: number) => {
                 return (
                   <Topping
@@ -129,6 +130,17 @@ export const PizzaDetails = () => {
               onClick={() => {
                 console.log(orderedPizza);
                 addToCart(orderedPizza);
+                toast.success(
+                  `${orderedPizza.name.toUpperCase()} Pizza successfully added to your cart !`,
+                  {
+                    style: {
+                      fontWeight: "bold",
+                      maxWidth: "40rem",
+                    },
+                    icon: "🍕",
+                    duration: 2000,
+                  }
+                );
               }}
               className="btn btn-lg gradient w-full flex justify-center gap-x-2"
             >

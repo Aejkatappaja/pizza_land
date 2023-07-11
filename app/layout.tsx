@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
 import { Nav } from "./components/Nav";
 import { CartContextProvider } from "./context/CartContext";
+import { ToasterContext } from "./context/ToasterContext";
 import { VisibleContextProvider } from "./context/isVisibleContext";
 import "./globals.css";
 import { Bangers, Quicksand, Roboto_Condensed } from "next/font/google";
@@ -40,6 +41,7 @@ export default function RootLayout({
       >
         <CartContextProvider>
           <VisibleContextProvider>
+            <ToasterContext />
             <Nav />
             <CartDesktop />
             <CartMobileIcon />
