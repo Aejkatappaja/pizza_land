@@ -5,7 +5,6 @@ import Image from "next/image";
 import { PizzaProps, PizzaType } from "../types/types";
 import Link from "next/link";
 import { useVisibleContext } from "@/context/isVisibleContext";
-import { Modal } from "./Modal";
 
 export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
   const { isVisible, setIsVisible, setSelectedPizza } = useVisibleContext();

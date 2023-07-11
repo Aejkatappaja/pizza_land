@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 export const PizzaDetails = () => {
   const { addToCart } = useCartContext();
-  const { selectedPizza } = useVisibleContext();
+  const { selectedPizza, setIsVisible } = useVisibleContext();
   const pizza = selectedPizza;
 
   const [size, setSize] = React.useState<string>("small");
@@ -112,7 +112,7 @@ export const PizzaDetails = () => {
             <SizeSelection size={size} setSize={setSize} pizza={pizza} />
             <CrustSelection crust={crust} setCrust={setCrust} />
             <div className="mb-1 text-xl font-semibold ">Choose topping</div>
-            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start mb-2  max-h-36 overflow-scroll">
+            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start mb-2 max-h-36 overflow-scroll">
               {pizza.toppings?.map((topping: ToppingType, index: number) => {
                 return (
                   <Topping
@@ -128,8 +128,8 @@ export const PizzaDetails = () => {
           <div className="flex items-center px-2 lg:items-end">
             <button
               onClick={() => {
-                console.log(orderedPizza);
                 addToCart(orderedPizza);
+                setIsVisible(false);
                 toast.success(
                   `${orderedPizza.name.toUpperCase()} Pizza successfully added to your cart !`,
                   {
