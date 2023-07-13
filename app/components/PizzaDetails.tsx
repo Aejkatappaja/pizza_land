@@ -89,14 +89,14 @@ export const PizzaDetails = () => {
         </div>
       </div>
       {/*details*/}
-      <div className="flex flex-col flex-1 ">
+      <div className="flex flex-col flex-1">
         <div className="flex-1 p-2 text-center lg:text-left">
-          <div className="flex-1 bg-white overflow-y-scroll h-[90%] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2">
+          <div className="flex-1 overflow-y-scroll h-[46vh] lg:h-[90%] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2">
             {/* name */}
             <div className="font-semibold">
               <h2 className="capitalize text-3xl mb-1">{pizza.name}</h2>
               {/* size, crust text */}
-              <div className=" mb-6 text-lg font-medium">
+              <div className="mb-6 text-lg font-medium">
                 <span>
                   {size === "small"
                     ? "25 cm"

@@ -14,7 +14,7 @@ export const Modal = () => {
       onClick={closeModal}
     >
       <div
-        className="border-2 lg:max-w-[900px] lg:max-h-[600px] z-40 opacity-100 bg-white rounded-2xl w-full h-full lg:fixed outline-none"
+        className="lg:max-w-[900px] lg:max-h-[600px] z-40 opacity-100 bg-white lg:rounded-2xl w-full h-full lg:fixed outline-none lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%]"
         onClick={(e) => e.stopPropagation()}
       >
         <div>
