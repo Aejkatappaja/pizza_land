@@ -6,6 +6,8 @@ import React from "react";
 interface VisibleContextType {
   selectedPizza: PizzaType; // Mettre à jour le type ici
   setSelectedPizza: React.Dispatch<React.SetStateAction<PizzaType>>; // Mettre à jour le type ici
+  isCheckoutVisible: boolean;
+  setIsCheckoutVisible: (isCheckoutVisible: boolean) => void;
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
   openModal: () => void;
@@ -32,6 +34,8 @@ export const VisibleContext = React.createContext<VisibleContextType>({
   setSelectedPizza: () => {},
   isVisible: false,
   setIsVisible: () => {},
+  isCheckoutVisible: false,
+  setIsCheckoutVisible: () => {},
   openModal: () => {},
   closeModal: () => {},
 });
@@ -51,6 +55,8 @@ export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
   }); // Mettre à jour l'état initial ici
 
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
+  const [isCheckoutVisible, setIsCheckoutVisible] =
+    React.useState<boolean>(false);
   const openModal = () => setIsVisible(true);
   const closeModal = () => setIsVisible(false);
 
@@ -59,6 +65,8 @@ export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
     setSelectedPizza,
     isVisible,
     setIsVisible,
+    isCheckoutVisible,
+    setIsCheckoutVisible,
     openModal,
     closeModal,
   };
