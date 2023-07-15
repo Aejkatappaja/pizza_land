@@ -16,7 +16,7 @@ export const CartDesktop = () => {
       } bg-white fixed top-0 bottom-0 w-[500px] shadow-2xl hidden lg:flex flex-col transition-all duration-300 z-20`}
     >
       <CartTop />
-      <div className=" h-[85vh] flex flex-col items-center overflow-scroll">
+      <div className=" h-[85vh] flex flex-col items-center overflow-scroll scrollbar-thin">
         {cart?.map((order: Order, index: number) => {
           return <CartItem key={index} order={order} />;
         })}
