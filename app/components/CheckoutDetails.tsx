@@ -52,11 +52,11 @@ export const CheckoutDetails = () => {
           </div>
         </div>
       ) : (
-        <div className="lg:gap-x-8 h-full lg:px-12 lg:py-8 ">
+        <div className="lg:gap-x-8 h-full lg:px-12 lg:py-8">
           <h2 className="mb-6 text-[20px] uppercase font-extrabold text-center lg:text-left pt-6 lg:pt-0">
             Shipping & Checkout
           </h2>
-          <div className="h-[86vh] lg:h-[55.5vh] flex flex-col lg:flex-row lg:gap-x-4 lg:overflow-visible overflow-scroll py-4 px-8 lg-py-0 lg:px-0">
+          <div className="h-[86vh] lg:h-[29.5rem] flex flex-col lg:flex-row lg:gap-x-4 lg:overflow-visible overflow-scroll py-4 px-8 lg-py-0 lg:px-0">
             <div className="flex-1 h-full overflow-y-auto lg:overflow-visible py-4 px-8 lg:py-0 lg:px-0">
               <div className="flex flex-col gap-4 h-full">
                 <div className="flex flex-col lg:flex-row justify-between gap-4 lg:gap-0 lg:gap-x-4">

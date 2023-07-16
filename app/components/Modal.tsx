@@ -6,14 +6,8 @@ import { PizzaDetails } from "./PizzaDetails";
 import { CheckoutDetails } from "./CheckoutDetails";
 
 export const Modal = () => {
-  const {
-    isVisible,
-    closeModal,
-    selectedPizza,
-    isCheckoutVisible,
-    setIsCheckoutVisible,
-  } = useVisibleContext();
-  console.log(selectedPizza);
+  const { isVisible, closeModal, isCheckoutVisible, setIsCheckoutVisible } =
+    useVisibleContext();
 
   return isVisible ? (
     <section

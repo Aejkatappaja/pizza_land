@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Logo from "../../public/logo.svg";
 import {
   FaYoutube,
   FaFacebook,
@@ -14,7 +15,7 @@ export const Footer = () => {
       <div className="container mx-auto">
         <div className="flex flex-col items-center gap-y-6 justify-center">
           <Link href={"#"}>
-            <Image src={"logo.svg"} width={180} height={180} alt="logo" />
+            <Image src={Logo} width={180} height={180} alt="logo" />
           </Link>
           <div className="flex gap-x-6 text-xl text-white">
             <Link href={"#"}>
