@@ -1,9 +1,9 @@
 "use client";
 
-import { useVisibleContext } from "@/context/isVisibleContext";
 import React from "react";
 import { PizzaDetails } from "./PizzaDetails";
 import { CheckoutDetails } from "./CheckoutDetails";
+import { useVisibleContext } from "@/context/isVisibleContext";
 
 export const Modal = () => {
   const { isVisible, closeModal, isCheckoutVisible, setIsCheckoutVisible } =
@@ -13,8 +13,9 @@ export const Modal = () => {
     <section
       className="w-[100vw] h-[100vh] bg-gray-600 bg-opacity-25 z-30 fixed top-0 left-0 flex items-center justify-center"
       onClick={() => {
-        closeModal();
-        setIsCheckoutVisible(false);
+        {
+          !isCheckoutVisible && closeModal();
+        }
       }}
     >
       {isCheckoutVisible ? (

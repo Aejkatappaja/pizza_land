@@ -1,13 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { IoMdCheckmark } from "react-icons/io";
-import { ToppingType } from "@/types/types";
-
-interface ToppingProps {
-  topping: ToppingType;
-  additionalTopping: ToppingType[];
-  setAdditionalTopping: React.Dispatch<React.SetStateAction<ToppingType[]>>;
-}
+import { ToppingProps } from "@/types/types";
 
 export const Topping: React.FC<ToppingProps> = ({
   topping,

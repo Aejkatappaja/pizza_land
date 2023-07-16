@@ -1,10 +1,9 @@
-import { useCartContext } from "@/context/CartContext";
-import { useVisibleContext } from "@/context/isVisibleContext";
 import React from "react";
 
-interface CartBottomProps {}
+import { useCartContext } from "@/context/CartContext";
+import { useVisibleContext } from "@/context/isVisibleContext";
 
-export const CartBottom: React.FC<CartBottomProps> = ({}) => {
+export const CartBottom = () => {
   const { totalPrice } = useCartContext();
   const { setIsCheckoutVisible, setIsVisible } = useVisibleContext();
   return (

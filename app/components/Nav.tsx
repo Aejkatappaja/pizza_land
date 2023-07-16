@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+
 import { useCartContext } from "@/context/CartContext";
 
 export const Nav = () => {
@@ -25,7 +26,6 @@ export const Nav = () => {
               </div>
             </div>
           </div>
-
           <div
             onClick={() => {
               cart.length && setIsCartVisible(!isCartVisible);
@@ -37,6 +37,12 @@ export const Nav = () => {
               {cart.length}
             </div>
           </div>
+          <Link
+            href={"/admin"}
+            className="hidden lg:flex font-robotoCondensed uppercase font-medium tracking-wide leading-none text-xl text-white cursor-pointer "
+          >
+            Admin
+          </Link>
         </div>
       </div>
     </nav>

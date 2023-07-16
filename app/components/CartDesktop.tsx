@@ -1,12 +1,13 @@
 "use client";
 
-import { useCartContext } from "@/context/CartContext";
 import React from "react";
 import Image from "next/image";
-import { CartTop } from "./CartTop";
-import { CartBottom } from "./CartBottom";
+
 import { Order } from "@/types/types";
+import { CartTop } from "./CartTop";
 import { CartItem } from "./CartItem";
+import { CartBottom } from "./CartBottom";
+import { useCartContext } from "@/context/CartContext";
 
 export const CartDesktop = () => {
   const { isCartVisible, cart } = useCartContext();

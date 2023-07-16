@@ -2,8 +2,8 @@
 
 import React from "react";
 import Image from "next/image";
-import { PizzaProps, PizzaType } from "../types/types";
-import Link from "next/link";
+
+import { PizzaProps } from "../types/types";
 import { useVisibleContext } from "@/context/isVisibleContext";
 
 export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
@@ -12,15 +12,18 @@ export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
   return (
     <>
       <div className="group py-2 px-4 xl:py-4 xl-px-2 rounded-xl" key={key}>
-        <Link href={`/pizza/${pizza.id}`}>
-          <Image
-            className="lg:group-hover:translate-y-3 transition-all duration-300 mb-8 cursor-pointer"
-            width={270}
-            height={270}
-            src={pizza.image}
-            alt="pizza"
-          />
-        </Link>
+        <Image
+          className="lg:group-hover:translate-y-3 transition-all duration-300 mb-8 cursor-pointer"
+          width={270}
+          height={270}
+          src={pizza.image}
+          alt="pizza"
+          onClick={() => {
+            setSelectedPizza(pizza);
+            setIsVisible(!isVisible);
+          }}
+        />
+
         <div>
           <div className="text-xl font-bold mb-3 capitalize cursor-pointer">
             {pizza.name}

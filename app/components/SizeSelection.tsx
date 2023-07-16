@@ -1,12 +1,7 @@
-import { PizzaType } from "@/types/types";
 import Image from "next/image";
 import React from "react";
 
-interface SizeSelectionProps {
-  pizza: PizzaType;
-  size: string;
-  setSize: (size: string) => void;
-}
+import { SizeSelectionProps } from "@/types/types";
 
 export const SizeSelection: React.FC<SizeSelectionProps> = ({
   pizza,
@@ -15,7 +10,6 @@ export const SizeSelection: React.FC<SizeSelectionProps> = ({
 }) => {
   return (
     <div className="mx-auto max-w-sm lg:max-w-none flex items-center justify-center lg:justify-start">
-      {/* sizes */}
       <div className="flex gap-x-12 items-baseline mb-10 font-medium">
         <label className=" flex flex-col items-center gap-x-2 cursor-pointer">
           <Image

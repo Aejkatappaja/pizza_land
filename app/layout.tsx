@@ -1,13 +1,12 @@
+import { Modal } from "./components/Modal";
 import { CartDesktop } from "./components/CartDesktop";
 import { CartMobileIcon } from "./components/CartMobileIcon";
-import { Footer } from "./components/Footer";
-import { Modal } from "./components/Modal";
-import { Nav } from "./components/Nav";
-import { CartContextProvider } from "./context/CartContext";
 import { ToasterContext } from "./context/ToasterContext";
+import { CartContextProvider } from "./context/CartContext";
 import { VisibleContextProvider } from "./context/isVisibleContext";
-import "./globals.css";
 import { Bangers, Quicksand, Roboto_Condensed } from "next/font/google";
+
+import "./globals.css";
 
 const bangers = Bangers({
   subsets: ["latin"],
@@ -42,11 +41,9 @@ export default function RootLayout({
         <CartContextProvider>
           <VisibleContextProvider>
             <ToasterContext />
-            <Nav />
             <CartDesktop />
             <CartMobileIcon />
             {children}
-            <Footer />
             <Modal />
           </VisibleContextProvider>
         </CartContextProvider>

@@ -1,7 +1,7 @@
-import { useCartContext } from "@/context/CartContext";
 import React from "react";
 import Image from "next/image";
 import { Order } from "@/types/types";
+import { useCartContext } from "@/context/CartContext";
 import { useVisibleContext } from "@/context/isVisibleContext";
 
 export const CheckoutDetails = () => {
@@ -33,6 +33,7 @@ export const CheckoutDetails = () => {
       }, 5000);
       return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [successMsg]);
 
   return (

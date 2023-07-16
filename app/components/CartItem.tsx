@@ -1,11 +1,8 @@
-import { Order } from "@/types/types";
 import React from "react";
 import Image from "next/image";
-import { useCartContext } from "@/context/CartContext";
 
-interface CartItemProps {
-  order: Order;
-}
+import { CartItemProps } from "@/types/types";
+import { useCartContext } from "@/context/CartContext";
 
 export const CartItem: React.FC<CartItemProps> = ({ order }) => {
   const { increaseProductQuantity, decreaseProductQuantity, removeProduct } =
@@ -41,7 +38,7 @@ export const CartItem: React.FC<CartItemProps> = ({ order }) => {
               >
                 -
               </button>
-              <h1>{order.quantity}</h1>
+              <h1 className="w-3 text-center">{order.quantity}</h1>
               <button
                 className="btn btn-primary w-6 gradient active:translate-y-[-0.25rem]"
                 onClick={() => increaseProductQuantity(order.id)}

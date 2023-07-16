@@ -1,12 +1,15 @@
-import { Banner } from "./components/Banner";
+import { Nav } from "./components/Nav";
 import { Pizza } from "./components/Pizza";
-import { getAllPizzas } from "./lib/pizzas";
+import { Banner } from "./components/Banner";
+import { Footer } from "./components/Footer";
 import { PizzaType } from "./types/types";
+import { getAllPizzas } from "./lib/pizzas";
 
 export default async function Home() {
   const pizzas = await getAllPizzas();
   return (
     <section>
+      <Nav />
       <Banner />
       <div className="container mx-auto">
         <div className="grid grid-cols-2 gap-[15px] md:grid-cols-3 xl:grid-cols-4 xl:gap-[30px] py-12">
@@ -15,6 +18,7 @@ export default async function Home() {
           })}
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

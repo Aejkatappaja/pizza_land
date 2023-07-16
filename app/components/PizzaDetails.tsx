@@ -1,12 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { SizeSelection } from "./SizeSelection";
+import toast from "react-hot-toast";
+
 import { Topping } from "./Topping";
-import { Order, ToppingType } from "@/types/types";
+import { SizeSelection } from "./SizeSelection";
 import { CrustSelection } from "./CrustSelection";
 import { useCartContext } from "@/context/CartContext";
 import { useVisibleContext } from "@/context/isVisibleContext";
-import toast from "react-hot-toast";
+import { Order, ToppingType } from "@/types/types";
 
 export const PizzaDetails = () => {
   const { addToCart } = useCartContext();
@@ -69,8 +70,6 @@ export const PizzaDetails = () => {
       setAdditionalToppingPrice(0);
     }
   }, [additionalTopping]);
-
-  console.log(pizza, price);
 
   return (
     <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8">
