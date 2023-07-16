@@ -131,10 +131,10 @@ export const PizzaDetails = () => {
                 addToCart(orderedPizza);
                 setIsVisible(false);
                 toast.success(
-                  `${orderedPizza.name.toUpperCase()} Pizza successfully added to your cart !`,
+                  `${orderedPizza.name.toUpperCase()} added to your cart !`,
                   {
                     style: {
-                      fontWeight: "bold",
+                      fontWeight: "base",
                       maxWidth: "40rem",
                     },
                     icon: "🍕",

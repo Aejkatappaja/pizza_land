@@ -52,7 +52,7 @@ export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
     priceSm: 0,
     image: "",
     toppings: [],
-  }); // Mettre à jour l'état initial ici
+  });
 
   const [isVisible, setIsVisible] = React.useState<boolean>(false);
   const [isCheckoutVisible, setIsCheckoutVisible] =

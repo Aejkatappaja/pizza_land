@@ -7,7 +7,11 @@ export const CartTop = () => {
     <div className="flex justify-between items-center py-6 px-6 border-b-2 border-gray-200">
       <h1 className="text-xl font-quicksand  text-center ">
         Shopping Bag -{" "}
-        {cart.length > 1 ? `${cart.length} products` : `1 product`}
+        {cart.length === 1
+          ? `${cart.length} product`
+          : cart.length > 1
+          ? `${cart.length} products`
+          : `Empty`}
       </h1>
 
       <h1

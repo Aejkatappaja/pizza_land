@@ -13,6 +13,9 @@ interface CartContextType {
   addToCart: (cart: Order) => void;
   totalPrice: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  increaseProductQuantity: (productId: number) => void;
+  decreaseProductQuantity: (productId: number) => void;
+  removeProduct: (productId: number) => void;
 }
 
 interface ContextProviderProps {
@@ -31,16 +34,71 @@ export const CartContext = React.createContext<CartContextType>({
   addToCart: () => {},
   totalPrice: 0,
   setTotalPrice: () => {},
+  increaseProductQuantity: () => {},
+  decreaseProductQuantity: () => {},
+  removeProduct: () => {},
 });
 
 export const CartContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [cart, setCart] = React.useState<Order[]>([]);
-  const addToCart = (product: Order) => {
-    const newProduct = { ...product };
 
-    setCart((prevCart) => [...prevCart, newProduct]);
+  const addToCart = (product: Order) => {
+    const existingProductIndex = cart.findIndex(
+      (item) => item.id === product.id
+    );
+
+    if (existingProductIndex !== -1) {
+      const updatedCart = [...cart];
+      updatedCart[existingProductIndex].quantity += 1;
+      setCart(updatedCart);
+    } else {
+      const newProduct = { ...product, quantity: 1 };
+      setCart((prevCart) => [...prevCart, newProduct]);
+    }
+  };
+
+  const increaseProductQuantity = (productId: number) => {
+    const updatedCart = cart.map((item) => {
+      if (item.id === productId) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+      return item;
+    });
+
+    setCart(updatedCart);
+  };
+
+  const decreaseProductQuantity = (productId: number) => {
+    const existingProductIndex = cart.findIndex(
+      (item) => item.id === productId
+    );
+
+    if (existingProductIndex !== -1) {
+      const updatedCart = [...cart];
+      if (updatedCart[existingProductIndex].quantity > 1) {
+        updatedCart[existingProductIndex].quantity -= 1;
+        setCart(updatedCart);
+      } else {
+        updatedCart.splice(existingProductIndex, 1);
+        setCart(updatedCart);
+      }
+    }
+  };
+
+  const removeProduct = (productId: number) => {
+    const removingProductIndex = cart.findIndex(
+      (item) => item.id === productId
+    );
+    if (removingProductIndex >= 0) {
+      const updatedCart = [...cart];
+      updatedCart.splice(removingProductIndex, 1);
+      setCart(updatedCart);
+    }
   };
 
   const [totalPrice, setTotalPrice] = React.useState<number>(0);
@@ -67,6 +125,9 @@ export const CartContextProvider: React.FC<ContextProviderProps> = ({
     closeCart,
     totalPrice,
     setTotalPrice,
+    increaseProductQuantity,
+    decreaseProductQuantity,
+    removeProduct,
   };
 
   return (

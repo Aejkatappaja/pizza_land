@@ -1,14 +1,15 @@
 import { Order } from "@/types/types";
 import React from "react";
 import Image from "next/image";
-import { BiPlus, BiMinus } from "react-icons/bi";
-import { IoCloseOutline } from "react-icons/io5";
+import { useCartContext } from "@/context/CartContext";
 
 interface CartItemProps {
   order: Order;
 }
 
 export const CartItem: React.FC<CartItemProps> = ({ order }) => {
+  const { increaseProductQuantity, decreaseProductQuantity, removeProduct } =
+    useCartContext();
   return (
     <div className="border-b-2 last-of-type:border-none border-b-gray-200 w-full px-4 py-4 cursor-default">
       <div className="flex items-center px-4">
@@ -20,7 +21,10 @@ export const CartItem: React.FC<CartItemProps> = ({ order }) => {
             <h1 className="font-bold capitalize font-quicksand">
               {order.name}
             </h1>
-            <span className="text-red-600 font-bold cursor-pointer active:translate-y-[-0.2rem]">
+            <span
+              className="text-red-600 font-bold cursor-pointer active:translate-y-[-0.2rem]"
+              onClick={() => removeProduct(order.id)}
+            >
               X
             </span>
           </div>
@@ -31,11 +35,17 @@ export const CartItem: React.FC<CartItemProps> = ({ order }) => {
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <button className="btn btn-primary w-6 gradient active:translate-y-1">
+              <button
+                className="btn btn-primary w-6 gradient active:translate-y-1"
+                onClick={() => decreaseProductQuantity(order.id)}
+              >
                 -
               </button>
               <h1>{order.quantity}</h1>
-              <button className="btn btn-primary w-6 gradient active:translate-y-[-0.25rem]">
+              <button
+                className="btn btn-primary w-6 gradient active:translate-y-[-0.25rem]"
+                onClick={() => increaseProductQuantity(order.id)}
+              >
                 +
               </button>
             </div>

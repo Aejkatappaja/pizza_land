@@ -1,6 +1,5 @@
 import pizzas from "@/data/pizzas.json";
 import { PizzaType } from "@/types/types";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(

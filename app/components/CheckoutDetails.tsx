@@ -34,10 +34,11 @@ export const CheckoutDetails = () => {
       return () => clearTimeout(timer);
     }
   }, [successMsg]);
+
   return (
     <div>
       {successMsg ? (
-        <div className="flex flex-col justify-center items-center h-[100vh] lg:h-[600px] px-6">
+        <div className="flex flex-col justify-center items-center h-[100vh] lg:h-[600px] px-6 z-30">
           <h2 className="text-2xl font-semibold text-center">
             Thank you ! The order has been placed !
           </h2>
@@ -52,7 +53,7 @@ export const CheckoutDetails = () => {
           </div>
         </div>
       ) : (
-        <div className="lg:gap-x-8 h-full lg:px-12 lg:py-8">
+        <div className="lg:gap-x-8 h-100vh lg:h-full lg:px-12 lg:py-8 z-30">
           <h2 className="mb-6 text-[20px] uppercase font-extrabold text-center lg:text-left pt-6 lg:pt-0">
             Shipping & Checkout
           </h2>
@@ -122,7 +123,7 @@ export const CheckoutDetails = () => {
             </div>
 
             <div className="flex-1 h-full lg:max-w-[40%] flex flex-col justify-between pt-3 px-8 lg:p-0">
-              <div className="border rounded-lg flex flex-col mb-4 p-4 h-full">
+              <div className="border rounded-lg flex flex-col mb-4 p-4 h-[30.2vh]">
                 <h3 className="text-base font-extrabold uppercase mb-4 border-b pb-4">
                   Your order
                 </h3>
@@ -149,7 +150,7 @@ export const CheckoutDetails = () => {
                 className="btn btn-lg gradient w-full"
                 onClick={() => setSuccessMsg(true)}
               >
-                Place order
+                Pay ${totalPrice.toFixed(2)}
               </button>
             </div>
           </div>

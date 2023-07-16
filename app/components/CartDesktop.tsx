@@ -2,6 +2,7 @@
 
 import { useCartContext } from "@/context/CartContext";
 import React from "react";
+import Image from "next/image";
 import { CartTop } from "./CartTop";
 import { CartBottom } from "./CartBottom";
 import { Order } from "@/types/types";
@@ -13,7 +14,7 @@ export const CartDesktop = () => {
     <div
       className={`${
         isCartVisible ? "left-0" : "-left-full"
-      } bg-white fixed top-0 bottom-0 lg:w-[500px] w-full shadow-2xl lg:flex flex-col transition-all duration-300 z-20`}
+      } bg-white fixed top-0 bottom-0 lg:w-[500px] w-full shadow-2xl lg:flex flex-col transition-all duration-300 z-30`}
     >
       <CartTop />
       <div
@@ -22,9 +23,20 @@ export const CartDesktop = () => {
           "scrollbar-track-black/10 srollbar-thumb-secondary"
         }`}
       >
-        {cart?.map((order: Order, index: number) => {
-          return <CartItem key={index} order={order} />;
-        })}
+        {cart.length >= 1 ? (
+          cart?.map((order: Order, index: number) => {
+            return <CartItem key={index} order={order} />;
+          })
+        ) : (
+          <div className="flex  items-center justify-center h-full">
+            <Image
+              src="/emptyCart.png"
+              width={420}
+              height={420}
+              alt="cart-empty"
+            />{" "}
+          </div>
+        )}
       </div>
       <CartBottom />
     </div>
