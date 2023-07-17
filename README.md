@@ -1,4 +1,6 @@
-## Getting Started
+## Pizza Land
+
+#Simple little Pizza shop project using => NextJS / TypeScript / TailwindCSS / React Parallax Mouse / React Hot Toast
 
 First, run the development server:
 

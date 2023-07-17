@@ -15,7 +15,7 @@ export const CartDesktop = () => {
     <div
       className={`${
         isCartVisible ? "left-0" : "-left-full"
-      } bg-white fixed top-0 bottom-0 lg:w-[500px] w-full shadow-2xl lg:flex flex-col transition-all duration-300 z-30`}
+      } bg-white fixed top-0 bottom-0 lg:w-[500px] w-full shadow-2xl h-full lg:flex flex-col transition-all duration-300 z-30`}
     >
       <CartTop />
       <div
