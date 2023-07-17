@@ -1,8 +1,8 @@
-## Pizza Land
+# Pizza Land
 
-# Simple Pizza e-shop project.
+## Simple Pizza e-shop project.
 
-# NextJS / TypeScript / TailwindCSS / React Parallax Mouse / React Hot Toast
+### NextJS / TypeScript / TailwindCSS / React Parallax Mouse / React Hot Toast
 
 First, run the development server:
 
