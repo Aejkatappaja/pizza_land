@@ -24,8 +24,8 @@ const robotoCondensed = Roboto_Condensed({
 });
 
 export const metadata = {
-  title: "PizzaLand",
-  description: "ePizza Shop",
+  title: "Pizza Land",
+  description: "Pizza Next Shop",
 };
 
 export default function RootLayout({
