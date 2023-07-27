@@ -37,12 +37,12 @@ export const Nav = () => {
               {cart.length}
             </div>
           </div>
-          <Link
+          {/* <Link
             href={"/admin"}
             className="hidden lg:flex font-robotoCondensed uppercase font-medium tracking-wide leading-none text-xl text-white cursor-pointer "
           >
             Admin
-          </Link>
+          </Link> */}
         </div>
       </div>
     </nav>
