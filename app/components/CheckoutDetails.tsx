@@ -39,7 +39,7 @@ export const CheckoutDetails = () => {
   return (
     <div>
       {successMsg ? (
-        <div className="flex flex-col justify-center items-center h-[100vh] lg:h-[600px] px-6 z-30">
+        <div className="flex flex-col justify-center items-center h-[100vh] lg:h-[600px] px-6 z-50">
           <h2 className="text-2xl font-semibold text-center">
             Thank you ! The order has been placed !
           </h2>
