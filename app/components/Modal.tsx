@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React from "react";
-import { PizzaDetails } from "./PizzaDetails";
-import { CheckoutDetails } from "./CheckoutDetails";
-import { useVisibleContext } from "@/context/isVisibleContext";
+import React from 'react';
+import { PizzaDetails } from './PizzaDetails';
+import { CheckoutDetails } from './checkout/index.';
+import { useVisibleContext } from '@/context/isVisibleContext';
 
 export const Modal = () => {
   const { isVisible, closeModal, isCheckoutVisible, setIsCheckoutVisible } =
@@ -11,7 +11,7 @@ export const Modal = () => {
 
   return isVisible ? (
     <section
-      className="w-[100vw] h-[100vh] bg-gray-600 bg-opacity-25 z-30 fixed top-0 left-0 flex items-center justify-center"
+      className='fixed left-0 top-0 z-30 flex h-[100vh] w-[100vw] items-center justify-center bg-gray-600 bg-opacity-25'
       onClick={() => {
         {
           !isCheckoutVisible && closeModal();
@@ -20,12 +20,12 @@ export const Modal = () => {
     >
       {isCheckoutVisible ? (
         <div
-          className="lg:max-w-[900px] lg:max-h-[600px] z-40 opacity-100 bg-white lg:rounded-2xl w-full h-full lg:fixed outline-none"
+          className='z-40 h-full w-full bg-white opacity-100 outline-none lg:fixed lg:max-h-[600px] lg:max-w-[900px] lg:rounded-2xl'
           onClick={(e) => e.stopPropagation()}
         >
           <div>
             <h2
-              className="text-2xl font-bold text-primary absolute z-30 right-5 top-3 hover:scale-110 duration-200 cursor-pointer"
+              className='absolute right-5 top-3 z-30 cursor-pointer text-2xl font-bold text-primary duration-200 hover:scale-110'
               onClick={() => {
                 closeModal();
                 setIsCheckoutVisible(false);
@@ -38,12 +38,12 @@ export const Modal = () => {
         </div>
       ) : (
         <div
-          className="lg:max-w-[900px] lg:max-h-[600px] z-40 opacity-100 bg-white lg:rounded-2xl w-full h-full lg:fixed outline-none lg:top-[50%] lg:left-[50%] lg:translate-x-[-50%] lg:translate-y-[-50%]"
+          className='z-40 h-full w-full bg-white opacity-100 outline-none lg:fixed lg:left-[50%] lg:top-[50%] lg:max-h-[600px] lg:max-w-[900px] lg:translate-x-[-50%] lg:translate-y-[-50%] lg:rounded-2xl'
           onClick={(e) => e.stopPropagation()}
         >
           <div>
             <h2
-              className="text-3xl font-bold text-primary absolute z-30 right-5 top-3 hover:scale-110 duration-200 cursor-pointer"
+              className='absolute right-5 top-3 z-30 cursor-pointer text-3xl font-bold text-primary duration-200 hover:scale-110'
               onClick={closeModal}
             >
               X

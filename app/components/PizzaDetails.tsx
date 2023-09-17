@@ -1,21 +1,21 @@
-import React from "react";
-import Image from "next/image";
-import toast from "react-hot-toast";
+import React from 'react';
+import Image from 'next/image';
+import toast from 'react-hot-toast';
 
-import { Topping } from "./Topping";
-import { SizeSelection } from "./SizeSelection";
-import { CrustSelection } from "./CrustSelection";
-import { useCartContext } from "@/context/CartContext";
-import { useVisibleContext } from "@/context/isVisibleContext";
-import { Order, ToppingType } from "@/types/types";
+import { Topping } from './Topping';
+import { SizeSelection } from './SizeSelection';
+import { CrustSelection } from './CrustSelection';
+import { useCartContext } from '@/context/CartContext';
+import { useVisibleContext } from '@/context/isVisibleContext';
+import { Order, ToppingType } from '@/types/types';
 
 export const PizzaDetails = () => {
   const { addToCart } = useCartContext();
   const { selectedPizza, setIsVisible } = useVisibleContext();
   const pizza = selectedPizza;
 
-  const [size, setSize] = React.useState<string>("small");
-  const [crust, setCrust] = React.useState<string>("traditional");
+  const [size, setSize] = React.useState<string>('small');
+  const [crust, setCrust] = React.useState<string>('traditional');
   const [additionalTopping, setAdditionalTopping] = React.useState<
     ToppingType[]
   >([]);
@@ -27,13 +27,13 @@ export const PizzaDetails = () => {
     let updatedPrice = 0;
 
     switch (size) {
-      case "small":
+      case 'small':
         updatedPrice = pizza.priceSm + additionalToppingPrice;
         break;
-      case "medium":
+      case 'medium':
         updatedPrice = pizza.priceMd + additionalToppingPrice;
         break;
-      case "large":
+      case 'large':
         updatedPrice = pizza.priceLg + additionalToppingPrice;
         break;
       default:
@@ -72,37 +72,37 @@ export const PizzaDetails = () => {
   }, [additionalTopping]);
 
   return (
-    <div className="flex flex-col lg:flex-row lg:gap-x-8 h-full md:p-8">
+    <div className='flex h-full flex-col md:p-8 lg:flex-row lg:gap-x-8'>
       {/*top */}
-      <div className="lg:flex-1 flex justify-center items-center">
+      <div className='flex items-center justify-center lg:flex-1'>
         {/*pizza image */}
-        <div className="max-w-[300px] lg:max-w-none mt-6 lg:mt-0">
+        <div className='mt-6 max-w-[300px] lg:mt-0 lg:max-w-none'>
           <Image
             src={pizza.image}
             width={450}
             height={450}
-            alt="pizza"
+            alt='pizza'
             priority
-            className="mx-auto relative"
+            className='relative mx-auto'
           />
         </div>
       </div>
       {/*details*/}
-      <div className="flex flex-col flex-1">
-        <div className="flex-1 p-2 text-center lg:text-left">
-          <div className="flex-1 overflow-y-scroll h-[46vh] lg:h-[90%] scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-white pr-2">
+      <div className='flex flex-1 flex-col'>
+        <div className='flex-1 p-2 text-center lg:text-left'>
+          <div className='h-[46vh] flex-1 overflow-y-scroll pr-2 scrollbar-thin scrollbar-track-white scrollbar-thumb-gray-200 lg:h-[90%]'>
             {/* name */}
-            <div className="font-semibold">
-              <h2 className="capitalize text-3xl mb-1">{pizza.name}</h2>
+            <div className='font-semibold'>
+              <h2 className='mb-1 text-3xl capitalize'>{pizza.name}</h2>
               {/* size, crust text */}
-              <div className="mb-6 text-lg font-medium">
+              <div className='mb-6 text-lg font-medium'>
                 <span>
-                  {size === "small"
-                    ? "25 cm"
-                    : size === "medium"
-                    ? "30 cm"
-                    : size === "large"
-                    ? "35 cm"
+                  {size === 'small'
+                    ? '25 cm'
+                    : size === 'medium'
+                    ? '30 cm'
+                    : size === 'large'
+                    ? '35 cm'
                     : false}
                 </span>
                 <span>, {crust} crust</span>
@@ -110,8 +110,8 @@ export const PizzaDetails = () => {
             </div>
             <SizeSelection size={size} setSize={setSize} pizza={pizza} />
             <CrustSelection crust={crust} setCrust={setCrust} />
-            <div className="mb-1 text-xl font-semibold ">Choose topping</div>
-            <div className="flex flex-1 flex-wrap gap-2 py-1 justify-center lg:justify-start mb-2 max-h-36 overflow-scroll">
+            <div className='mb-1 text-xl font-semibold '>Choose topping</div>
+            <div className='mb-2 flex max-h-36 flex-1 flex-wrap justify-center gap-2 overflow-scroll py-1 lg:justify-start'>
               {pizza.toppings?.map((topping: ToppingType, index: number) => {
                 return (
                   <Topping
@@ -124,7 +124,7 @@ export const PizzaDetails = () => {
               })}
             </div>
           </div>
-          <div className="flex items-center px-2 lg:items-end">
+          <div className='flex items-center px-2 lg:items-end'>
             <button
               onClick={() => {
                 addToCart(orderedPizza);
@@ -133,15 +133,15 @@ export const PizzaDetails = () => {
                   `${orderedPizza.name.toUpperCase()} added to your cart !`,
                   {
                     style: {
-                      fontWeight: "base",
-                      maxWidth: "40rem",
+                      fontWeight: 'base',
+                      maxWidth: '40rem',
                     },
-                    icon: "🍕",
+                    icon: '🍕',
                     duration: 2000,
                   }
                 );
               }}
-              className="btn btn-lg gradient w-full flex justify-center gap-x-2"
+              className='btn btn-lg gradient flex w-full justify-center gap-x-2'
             >
               <div>Add to cart for :</div>
               <div>$ {price}</div>
