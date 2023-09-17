@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { PizzaDetails } from './PizzaDetails';
-import { CheckoutDetails } from './checkout/index.';
+import { CheckoutDetails } from './checkout';
 import { useVisibleContext } from '@/context/isVisibleContext';
 
 export const Modal = () => {
