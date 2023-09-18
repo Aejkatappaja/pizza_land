@@ -1,9 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface ContactProps {}
-
-export const Contact: React.FC<ContactProps> = ({}) => {
+export const Contact = () => {
   return (
     <div className='flex items-center gap-x-3'>
       <Image src={'phone.svg'} width={42} height={42} alt='phone-icon' />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { CartButton } from './cart-button';
 import { BrandLogo } from './brand-logo';
-import { Contact } from './contact';
+import { Contact } from './address-number';
 
 export const Header = () => {
   return (
