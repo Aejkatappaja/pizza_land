@@ -7,6 +7,9 @@ import { useCartContext } from '@/context/CartContext';
 export const CartItem: React.FC<CartItemProps> = ({ order }) => {
   const { increaseProductQuantity, decreaseProductQuantity, removeProduct } =
     useCartContext();
+
+  const additionnalToppingPurchased = order?.additionalTopping?.length;
+
   return (
     <div className='w-full cursor-default border-b-2 border-b-gray-200 px-4 py-4 last-of-type:border-none'>
       <div className='flex items-center px-4'>
@@ -50,11 +53,11 @@ export const CartItem: React.FC<CartItemProps> = ({ order }) => {
           </div>
         </div>
       </div>
-      {order.additionalTopping.length ? (
+      {additionnalToppingPurchased ? (
         <div className='mt-4 flex w-full gap-3 py-4 pl-6'>
           <div className='flex flex-wrap items-center gap-3'>
             <h1 className='mr-5'>
-              {order.additionalTopping.length > 1 ? 'Toppings:' : 'Topping:'}
+              {additionnalToppingPurchased > 1 ? 'Toppings:' : 'Topping:'}
             </h1>
             {order?.additionalTopping.map((item, index) => {
               return (
