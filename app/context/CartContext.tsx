@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Order } from "@/types/types";
-import React from "react";
+import { Order } from '@/types/types';
+import React from 'react';
 
 interface CartContextType {
   isCartVisible: boolean;

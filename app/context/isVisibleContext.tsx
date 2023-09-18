@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { PizzaType } from "@/types/types";
-import React from "react";
+import { PizzaType } from '@/types/types';
+import React from 'react';
 
 interface VisibleContextType {
   selectedPizza: PizzaType; // Mettre à jour le type ici
-  setSelectedPizza: React.Dispatch<React.SetStateAction<PizzaType>>; // Mettre à jour le type ici
+  setSelectedPizza: React.Dispatch<React.SetStateAction<PizzaType>>;
   isCheckoutVisible: boolean;
   setIsCheckoutVisible: (isCheckoutVisible: boolean) => void;
   isVisible: boolean;
@@ -23,12 +23,12 @@ export const useVisibleContext = () => React.useContext(VisibleContext);
 export const VisibleContext = React.createContext<VisibleContextType>({
   selectedPizza: {
     id: 0,
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     priceLg: 0,
     priceMd: 0,
     priceSm: 0,
-    image: "",
+    image: '',
     toppings: [],
   },
   setSelectedPizza: () => {},
@@ -45,12 +45,12 @@ export const VisibleContextProvider: React.FC<ContextProviderProps> = ({
 }) => {
   const [selectedPizza, setSelectedPizza] = React.useState<PizzaType>({
     id: 0,
-    name: "",
-    description: "",
+    name: '',
+    description: '',
     priceLg: 0,
     priceMd: 0,
     priceSm: 0,
-    image: "",
+    image: '',
     toppings: [],
   });
 

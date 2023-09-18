@@ -1,4 +1,4 @@
-import { Modal } from './components/Modal';
+import { Modal } from '@/components/modal';
 import { CartDesktop } from './components/cart';
 import { CartMobileIcon } from './components/cart-mobile-icon';
 import { ToasterContext } from './context/ToasterContext';

@@ -1,7 +1,7 @@
-import React from "react";
-import Image from "next/image";
-import { IoMdCheckmark } from "react-icons/io";
-import { ToppingProps } from "@/types/types";
+import React from 'react';
+import Image from 'next/image';
+import { IoMdCheckmark } from 'react-icons/io';
+import { ToppingProps } from '@/types/types';
 
 export const Topping: React.FC<ToppingProps> = ({
   topping,
@@ -28,34 +28,35 @@ export const Topping: React.FC<ToppingProps> = ({
   React.useEffect(() => {
     handleTopping();
   }, [isChecked]);
+
   return (
     <div
       className={`${
-        isChecked && "border-orange"
-      } w-full max-w-[110px] h-[140px] p-1 flex flex-col items-center justify-center border rounded-md bg-white relative`}
+        isChecked && 'border-orange'
+      } relative flex h-[140px] w-full max-w-[110px] flex-col items-center justify-center rounded-md border bg-white p-1`}
     >
       <Image
         src={topping.image}
         height={70}
         width={70}
-        alt="Topping"
-        className="mb-2"
+        alt='Topping'
+        className='mb-2'
       />
-      <div className="text-sm capitalize text-center font-medium ">
+      <div className='text-center text-sm font-medium capitalize'>
         {topping.name}
       </div>
       <input
-        type="checkbox"
+        type='checkbox'
         checked={isChecked}
-        className="absolute w-full h-full opacity-0 cursor-pointer"
+        className='absolute h-full w-full cursor-pointer opacity-0'
         onChange={handleCheckBox}
       />
       <div
         className={`${
-          isChecked ? "opacity-100" : "opacity-0"
-        } absolute top-1 right-1`}
+          isChecked ? 'opacity-100' : 'opacity-0'
+        } absolute right-1 top-1`}
       >
-        <IoMdCheckmark className="text-xl text-orange" />
+        <IoMdCheckmark className='text-xl text-orange' />
       </div>
     </div>
   );
