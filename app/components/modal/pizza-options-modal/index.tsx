@@ -1,5 +1,5 @@
 import React from 'react';
-import { PizzaDetails } from '@/components/PizzaDetails';
+import { PizzaDetails } from '@/components/modal/pizza-options-modal/PizzaDetails';
 import { useVisibleContext } from '@/context/isVisibleContext';
 
 export const SelectPizzaOptions = () => {
