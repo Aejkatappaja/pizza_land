@@ -3,7 +3,7 @@ import { Pizza } from '@/components/card';
 import { Banner } from '@/components/banner';
 import { Footer } from '@/components/footer';
 import { PizzaType } from '@/types/types';
-import { getAllPizzas } from '@/lib/pizzas';
+import { getAllPizzas } from '@/services/fetch-pizzas';
 
 export default async function Home() {
   const pizzas = await getAllPizzas();
