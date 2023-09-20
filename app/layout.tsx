@@ -1,9 +1,8 @@
 import { Modal } from '@/components/modal';
-import { CartDesktop } from './components/cart';
-import { CartMobileIcon } from './components/cart-mobile-icon';
-import { ToasterContext } from './context/ToasterContext';
-import { CartContextProvider } from './context/CartContext';
-import { VisibleContextProvider } from './context/isVisibleContext';
+import { CartDesktop } from '@/components/cart';
+import { CartMobileIcon } from '@/components/header/structure/cart-mobile-icon';
+import { Toast } from '@/lib/toaster';
+import { ContextProvider } from '@/context';
 import { Bangers, Quicksand, Roboto_Condensed } from 'next/font/google';
 
 import './globals.css';
@@ -38,15 +37,13 @@ export default function RootLayout({
       <body
         className={`${quicksand.variable} ${bangers.variable} ${robotoCondensed.variable} font-quicksand`}
       >
-        <CartContextProvider>
-          <VisibleContextProvider>
-            <ToasterContext />
-            <CartDesktop />
-            <CartMobileIcon />
-            {children}
-            <Modal />
-          </VisibleContextProvider>
-        </CartContextProvider>
+        <ContextProvider>
+          <CartDesktop />
+          <CartMobileIcon />
+          {children}
+          <Modal />
+          <Toast />
+        </ContextProvider>
       </body>
     </html>
   );
