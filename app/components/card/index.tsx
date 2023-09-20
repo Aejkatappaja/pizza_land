@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { PizzaProps } from '../../types/types';
-import { useVisibleContext } from '@/context/isVisibleContext';
+import { useVisibleContext } from '@/context';
 
 export const Pizza: React.FC<PizzaProps> = ({ key, pizza }) => {
   const { isVisible, setIsVisible, setSelectedPizza } = useVisibleContext();
