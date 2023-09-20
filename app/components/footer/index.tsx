@@ -18,16 +18,16 @@ export const Footer = () => {
             <Image src={Logo} width={180} height={180} alt='logo' />
           </Link>
           <div className='flex gap-x-6 text-xl text-white'>
-            <Link href={'#'}>
+            <Link href={'#'} aria-label='Youtube-logo'>
               <FaYoutube />
             </Link>
-            <Link href={'#'}>
+            <Link href={'#'} aria-label='Facebook-logo'>
               <FaFacebook />
             </Link>
-            <Link href={'#'}>
+            <Link href={'#'} aria-label='Instagram-logo'>
               <FaInstagram />
             </Link>
-            <Link href={'#'}>
+            <Link href={'#'} aria-label='Pinterest-logo'>
               <FaPinterest />
             </Link>
           </div>
