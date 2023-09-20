@@ -13,21 +13,37 @@ export const Topping: React.FC<ToppingProps> = ({
     setIsChecked(!isChecked);
   };
 
-  const handleTopping = () => {
-    if (isChecked) {
-      const newToppings = new Set([...additionalTopping, { ...topping }]);
-      setAdditionalTopping(Array.from(newToppings));
-    } else {
-      const newToppings = additionalTopping.filter((toppingObj) => {
-        return toppingObj.name !== topping.name;
-      });
-      setAdditionalTopping(newToppings);
-    }
-  };
+  // const handleTopping = () => {
+  //   if (isChecked) {
+  //     const newToppings = new Set([...additionalTopping, { ...topping }]);
+  //     setAdditionalTopping(Array.from(newToppings));
+  //   } else {
+  //     const newToppings = additionalTopping.filter((toppingObj) => {
+  //       return toppingObj.name !== topping.name;
+  //     });
+  //     setAdditionalTopping(newToppings);
+  //   }
+  // };
+
+  // React.useEffect(() => {
+  //   handleTopping();
+  // }, [handleTopping, isChecked]);
 
   React.useEffect(() => {
+    const handleTopping = () => {
+      if (isChecked) {
+        const newToppings = new Set([...additionalTopping, { ...topping }]);
+        setAdditionalTopping(Array.from(newToppings));
+      } else {
+        const newToppings = additionalTopping.filter((toppingObj) => {
+          return toppingObj.name !== topping.name;
+        });
+        setAdditionalTopping(newToppings);
+      }
+    };
+
     handleTopping();
-  }, [isChecked]);
+  }, [isChecked, topping, additionalTopping, setAdditionalTopping]);
 
   return (
     <div

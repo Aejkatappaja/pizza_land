@@ -1,4 +1,4 @@
-import { useCartContext } from '@/context/CartContext';
+import { useCartContext } from '@/context/cart.context';
 import { Order } from '@/types/types';
 import React from 'react';
 

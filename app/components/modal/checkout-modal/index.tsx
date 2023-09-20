@@ -1,6 +1,6 @@
 import React from 'react';
-import { CheckoutDetails } from './checkout-details';
-import { useVisibleContext } from '@/context/isVisibleContext';
+import { CheckoutDetails } from './structure';
+import { useVisibleContext } from '@/context';
 
 export const CheckoutModal = () => {
   const { closeModal, setIsCheckoutVisible } = useVisibleContext();

@@ -2,14 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 
-import { Topping } from './Topping';
-import { SizeSelection } from './SizeSelection';
-import { CrustSelection } from './CrustSelection';
-import { useCartContext } from '@/context/CartContext';
-import { useVisibleContext } from '@/context/isVisibleContext';
+import { Topping, SizeSelection, CrustSelection } from './selection';
+
+import { useCartContext, useVisibleContext } from '@/context';
 import { Order, ToppingType } from '@/types/types';
 
-export const PizzaDetails = () => {
+export const PizzaElementsSelection = () => {
   const { addToCart } = useCartContext();
   const { selectedPizza, setIsVisible } = useVisibleContext();
   const pizza = selectedPizza;

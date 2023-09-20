@@ -1,9 +1,7 @@
 import React from 'react';
 
-import { useCartContext } from '@/context/CartContext';
-import { useVisibleContext } from '@/context/isVisibleContext';
-import { PaymentAccepted } from './payment-accepted';
-import { PaymentForm } from './payment-form';
+import { useCartContext, useVisibleContext } from '@/context';
+import { PaymentAccepted, PaymentForm } from './payment';
 
 export const CheckoutDetails = () => {
   const { setIsCheckoutVisible, setIsVisible } = useVisibleContext();

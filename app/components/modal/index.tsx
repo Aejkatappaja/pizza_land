@@ -2,13 +2,12 @@
 
 import React from 'react';
 
-import { useVisibleContext } from '@/context/isVisibleContext';
+import { useVisibleContext } from '@/context';
 import { SelectPizzaOptions } from './pizza-options-modal';
 import { CheckoutModal } from './checkout-modal';
 
 export const Modal = () => {
-  const { isVisible, closeModal, isCheckoutVisible, setIsCheckoutVisible } =
-    useVisibleContext();
+  const { isVisible, closeModal, isCheckoutVisible } = useVisibleContext();
 
   return isVisible ? (
     <section

@@ -1,6 +1,6 @@
 import React from 'react';
-import { PizzaDetails } from '@/components/modal/pizza-options-modal/PizzaDetails';
-import { useVisibleContext } from '@/context/isVisibleContext';
+import { PizzaElementsSelection } from '@/components/modal/pizza-options-modal/structure';
+import { useVisibleContext } from '@/context';
 
 export const SelectPizzaOptions = () => {
   const { closeModal } = useVisibleContext();
@@ -17,7 +17,7 @@ export const SelectPizzaOptions = () => {
           X
         </h2>
       </div>
-      <PizzaDetails />
+      <PizzaElementsSelection />
     </div>
   );
 };
