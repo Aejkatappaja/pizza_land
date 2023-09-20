@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { CartButton } from './cart-button';
-import { BrandLogo } from './brand-logo';
-import { Contact } from './address-number';
+import { CartIcon, BrandLogo, Contact } from './structure';
 
 export const Header = () => {
   return (
@@ -11,7 +9,7 @@ export const Header = () => {
         <BrandLogo />
         <div className='flex items-center gap-x-8'>
           <Contact />
-          <CartButton />
+          <CartIcon />
         </div>
       </div>
     </nav>
