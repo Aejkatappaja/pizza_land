@@ -4,10 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 
 import { Order } from '@/types/types';
-import { CartTop } from './cart-top';
-import { CartItem } from './cart-item';
-import { CartBottom } from './cart-bottom';
-import { useCartContext } from '@/context/CartContext';
+import { CartBottom, CartItem, CartTop } from './structure';
+import { useCartContext } from '@/context';
 
 export const CartDesktop = () => {
   const { isCartVisible, cart } = useCartContext();

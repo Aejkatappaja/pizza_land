@@ -1,10 +1,10 @@
 'use client';
 
-import { useCartContext } from '@/context/CartContext';
+import { useCartContext } from '@/context';
 import React from 'react';
 import Image from 'next/image';
 
-export const CartButton = () => {
+export const CartIcon = () => {
   const { cart } = useCartContext();
   const { setIsCartVisible, isCartVisible } = useCartContext();
   return (

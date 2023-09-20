@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { CartItemProps } from '@/types/types';
-import { useCartContext } from '@/context/CartContext';
+import { useCartContext } from '@/context';
 
 export const CartItem: React.FC<CartItemProps> = ({ order }) => {
   const { increaseProductQuantity, decreaseProductQuantity, removeProduct } =

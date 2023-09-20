@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { useCartContext } from '@/context/CartContext';
-import { useVisibleContext } from '@/context/isVisibleContext';
+import { useVisibleContext, useCartContext } from '@/context';
 
 export const CartBottom = () => {
   const { totalPrice, cart } = useCartContext();
