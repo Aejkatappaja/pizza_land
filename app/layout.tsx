@@ -1,7 +1,7 @@
 import { Modal } from '@/components/modal';
 import { CartDesktop } from '@/components/cart';
 import { CartMobileIcon } from '@/components/header/structure/cart-mobile-icon';
-import { Toast } from '@/lib/toaster';
+import { Toaster } from 'react-hot-toast';
 import { ContextProvider } from '@/context';
 import { Bangers, Quicksand, Roboto_Condensed } from 'next/font/google';
 
@@ -42,7 +42,7 @@ export default function RootLayout({
           <CartMobileIcon />
           {children}
           <Modal />
-          <Toast />
+          <Toaster />
         </ContextProvider>
       </body>
     </html>
