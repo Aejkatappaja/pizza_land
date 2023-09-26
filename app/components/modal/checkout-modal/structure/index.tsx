@@ -8,6 +8,9 @@ export const CheckoutDetails = () => {
   const { setCart, setIsCartVisible } = useCartContext();
   const [successMsg, setSuccessMsg] = React.useState<boolean>(false);
   const [count, setCount] = React.useState<number>(5);
+  const [customerIdentity, setCustomerIdentity] = React.useState<string | null>(
+    null
+  );
 
   React.useEffect(() => {
     if (successMsg) {
@@ -38,9 +41,12 @@ export const CheckoutDetails = () => {
   return (
     <div>
       {successMsg ? (
-        <PaymentAccepted count={count} />
+        <PaymentAccepted count={count} customerIdentity={customerIdentity} />
       ) : (
-        <PaymentForm setSuccessMsg={setSuccessMsg} />
+        <PaymentForm
+          setSuccessMsg={setSuccessMsg}
+          setCustomerIdentity={setCustomerIdentity}
+        />
       )}
     </div>
   );
