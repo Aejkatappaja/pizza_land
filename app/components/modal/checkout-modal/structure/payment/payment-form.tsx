@@ -1,12 +1,7 @@
 import { useCartContext } from '@/context/cart.context';
-import { Order } from '@/types/types';
+import { DataProps, Order, PaymentFormProps } from '@/types/types';
 import React from 'react';
 import toast from 'react-hot-toast';
-
-interface PaymentFormProps {
-  setSuccessMsg: React.Dispatch<React.SetStateAction<boolean>>;
-  setCustomerIdentity: React.Dispatch<React.SetStateAction<string | null>>;
-}
 
 export const PaymentForm: React.FC<PaymentFormProps> = ({
   setSuccessMsg,
@@ -28,13 +23,17 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      let data;
+      let data: DataProps;
       const firstName = firstNameRef?.current?.value;
       const lastName = lastNameRef?.current?.value;
       const phone = phoneRef?.current?.value;
       const email = emailRef?.current?.value;
       const streetName = streetNameRef?.current?.value;
       const streetNumber = streetNumberRef?.current?.value;
+      const apt = aptRef?.current?.value;
+      const block = blockRef?.current?.value;
+      const floor = floorRef?.current?.value;
+      const mentions = mentionsRef?.current?.value;
       if (
         !firstName ||
         !lastName ||
@@ -44,17 +43,21 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
         !streetNumber
       ) {
         toast.error('You need to fill all inputs!');
+      } else {
+        data = {
+          firstName,
+          lastName,
+          phone,
+          email,
+          street: `${streetNumber} ${streetName}`,
+          apt,
+          block,
+          floor,
+          mentions,
+        };
+        setCustomerIdentity(`${data.firstName} ${data.lastName}`);
+        setSuccessMsg(true);
       }
-      data = {
-        firstName,
-        lastName,
-        phone,
-        email,
-        street: `${streetNumber} ${streetName}`,
-      };
-      console.log(data);
-      setCustomerIdentity(`${firstName} ${lastName}`);
-      setSuccessMsg(true);
     } catch (error: unknown) {
       console.error(error);
     }
