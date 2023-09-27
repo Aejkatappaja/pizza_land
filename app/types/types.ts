@@ -46,3 +46,20 @@ export type ToppingProps = {
   additionalTopping: ToppingType[];
   setAdditionalTopping: React.Dispatch<React.SetStateAction<ToppingType[]>>;
 };
+
+export interface PaymentFormProps {
+  setSuccessMsg: React.Dispatch<React.SetStateAction<boolean>>;
+  setCustomerIdentity: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+export interface DataProps {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  email: string;
+  street: string;
+  block?: string;
+  floor?: string;
+  apt?: string;
+  mentions?: string;
+}
