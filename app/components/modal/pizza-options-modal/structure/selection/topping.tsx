@@ -43,7 +43,8 @@ export const Topping: React.FC<ToppingProps> = ({
     };
 
     handleTopping();
-  }, [isChecked, topping, additionalTopping, setAdditionalTopping]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isChecked]);
 
   return (
     <div
