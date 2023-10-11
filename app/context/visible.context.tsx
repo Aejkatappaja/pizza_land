@@ -4,7 +4,7 @@ import { PizzaType } from '@/types/types';
 import React from 'react';
 
 interface VisibleContextType {
-  selectedPizza: PizzaType; // Mettre à jour le type ici
+  selectedPizza: PizzaType;
   setSelectedPizza: React.Dispatch<React.SetStateAction<PizzaType>>;
   isCheckoutVisible: boolean;
   setIsCheckoutVisible: (isCheckoutVisible: boolean) => void;
